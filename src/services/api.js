@@ -1,0 +1,1 @@
+export async function apiRequest(path,options={}){const r=await fetch(`/api${path}`,{...options,credentials:"include",headers:{...(options.body?{"Content-Type":"application/json"}:{}),...options.headers}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.message||"Something went wrong.");return d;}
